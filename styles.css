@@ -1,68 +1,24 @@
-/*Main style setup*/
-:root {
-    --primary-color: #0C2D57; /* Primary color */
-    --secondary-color: #FC6736; /* Secondary color */
-    --tertiary-color: #FFB0B0; /* Tertiary color */
-    --background-color: #EFECEC; /* Background color */
-}
-
 body {
-    background-color: var(--background-color);
-    color: var(--primary-color);
-    font-family: Arial, sans-serif;
-    margin: 0; /* Ensure there's no margin causing space at the top */
-    padding: 0; /* Ensure there's no padding causing space at the top */
+    margin: 0; /* Remove default page margins */
+    font-family: Arial, sans-serif; /* A simple font */
 }
 
-h1 {
-    color: var(--secondary-color);
-}
-
-a {
-    color: var(--tertiary-color);
-    text-decoration: none; /* Optional: Removes underline from links */
-}
-
-/* Ribbon setup */
-nav {
-    background-color: var(--primary-color); /* Use your primary color */
-    text-align: right; /* Align text to the right side */
-    padding: 10px 0;
-    margin: 0; /* Remove any default margin */
-    position: relative; /* Add relative positioning to ensure it's relative to the document */
-    z-index: 10; /* Ensure it's on top of other content */
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0; /* Remove default margin */
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li:last-child {
-    margin-right: 0; /* Remove the margin for the last item to align properly */
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: var(--background-color); /* Contrast color for the text */
-    font-weight: bold;
-    padding: 5px 10px;
-}
-
-nav ul li a:hover {
-    background-color: var(--secondary-color);
-    color: var(--background-color);
-    border-radius: 5px;
-}
-
-nav {
+.ribbon {
+    background-color: #333; /* Dark gray background */
+    color: white;          /* White text */
+    padding: 15px;
+    text-align: center;
+    position: fixed;       /* Make the ribbon stay at the top */
     top: 0;
-    left: 0;
     width: 100%;
+}
+
+.ribbon a {
+    color: white;
+    text-decoration: none;  /* Remove link underlines */
+    margin: 0 10px;         /* Space between buttons */
+}
+
+.main-content {
+    padding: 60px 10px 10px 10px;  /* Add padding, adjust top to avoid ribbon overlap */
 }
