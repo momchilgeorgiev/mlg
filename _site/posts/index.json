@@ -1,0 +1,59 @@
+[
+  {
+    "filename": "travel-blog.md",
+    "slug": "travel-blog",
+    "title": "Travel Blog",
+    "date": "2025-07-24",
+    "category": "Personal",
+    "tags": [
+      "travel",
+      "adventure"
+    ],
+    "excerpt": "My recent trip to...",
+    "featured": false
+  },
+  {
+    "filename": "my-journey-learning-to-code.md",
+    "slug": "my-journey-learning-to-code",
+    "title": "My Journey Learning to Code",
+    "date": "2024-01-25",
+    "category": "Personal",
+    "tags": [
+      "learning",
+      "coding",
+      "career",
+      "journey"
+    ],
+    "excerpt": "A reflection on my coding journey, the challenges I faced, and the lessons I learned along the way.",
+    "featured": false
+  },
+  {
+    "filename": "thoughts-on-modern-web-development.md",
+    "slug": "thoughts-on-modern-web-development",
+    "title": "Thoughts on Modern Web Development",
+    "date": "2024-01-20",
+    "category": "Technology",
+    "tags": [
+      "web development",
+      "javascript",
+      "css",
+      "html"
+    ],
+    "excerpt": "Exploring the current state of web development and where I think it's heading in the next few years.",
+    "featured": false
+  },
+  {
+    "filename": "getting-started-with-my-blog.md",
+    "slug": "getting-started-with-my-blog",
+    "title": "Getting Started with My Blog",
+    "date": "2024-01-15",
+    "category": "Personal",
+    "tags": [
+      "introduction",
+      "blogging",
+      "web"
+    ],
+    "excerpt": "Welcome to my blog! This is my first post where I introduce myself and share what I plan to write about in the future.",
+    "featured": true
+  }
+]

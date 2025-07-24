@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="post-title">Blog Post</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <h1><a href="index.html">My Blog</a></h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="search.html">Search</a>
+                <a href="pages/contacts.html">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <article class="post-content">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="post-date" id="post-date"></span>
+                    <span class="post-category" id="post-category"></span>
+                </div>
+                <h1 id="post-title-header">Loading...</h1>
+                <div class="post-tags" id="post-tags"></div>
+            </header>
+            
+            <div id="post-body">
+                <!-- Post content will be loaded here -->
+            </div>
+            
+            <footer class="post-footer">
+                <div class="post-navigation">
+                    <a href="index.html" class="back-to-home">← Back to Home</a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="js/markdown-loader.js"></script>
+    <script src="js/blog.js"></script>
+    <script src="js/post.js"></script>
+</body>
+</html>

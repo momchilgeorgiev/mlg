@@ -1,0 +1,46 @@
+# Site settings
+title: My Blog
+email: your.email@example.com
+description: >-
+  A clean, modern blog where I share my thoughts, experiences, and insights.
+  Welcome to my personal space on the web!
+
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Minima date format
+minima:
+  date_format: "%b %-d, %Y"
+
+# Social links (uncomment and update as needed)
+# twitter_username: yourusername
+# github_username: yourusername
+# linkedin_username: yourusername
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - js/
+  - add-post.js
+  - test-markdown.html
+  - pages/
