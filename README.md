@@ -44,47 +44,88 @@ Then visit `http://localhost:8000`
 
 ## Adding New Blog Posts
 
-### Method 1: Edit the JavaScript File (Recommended for now)
+### Method 1: Using Markdown Files (Recommended)
 
-1. Open `js/blog.js`
-2. Find the `loadPosts()` method
-3. Add your new post to the `this.posts` array:
+The blog now automatically loads posts from markdown files in the `posts/` directory!
 
-```javascript
-{
-    id: 4, // Increment the ID
-    title: "Your Post Title",
-    slug: "your-post-slug", // URL-friendly version
-    date: new Date('2024-02-01'), // Publication date
-    category: "Technology", // Category name
-    tags: ["tag1", "tag2", "tag3"], // Array of tags
-    excerpt: "A brief description of your post...",
-    content: `# Your Post Title
+#### Option A: Using the Helper Script (Node.js required)
 
-Your markdown content goes here...
+```bash
+# Create a new post with title only
+node add-post.js "My New Blog Post"
 
-## Subheading
+# Create a post with category and tags
+node add-post.js "JavaScript Tips" "Programming" "javascript,tips,tutorial"
 
-More content with **bold** and *italic* text.
+# Create a post with excerpt
+node add-post.js "Travel Blog" "Personal" "travel,adventure" "My recent trip to..."
+```
+
+This script will:
+- Create a new markdown file in the `posts/` directory
+- Generate a URL-friendly slug
+- Update the `posts/index.json` file
+- Provide a template with proper formatting
+
+#### Option B: Manual Creation
+
+1. **Create a markdown file** in the `posts/` directory (e.g., `my-new-post.md`)
+
+2. **Use this format** for your post:
+
+```markdown
+# Your Post Title
+
+*Published: 2024-02-01 | Category: Technology | Tags: tag1, tag2, tag3*
+
+Brief excerpt of your post that will appear on the main page...
+
+## Your Content Here
+
+Write your blog post using standard markdown:
+
+- **Bold text** and *italic text*
+- [Links](https://example.com)
+- `inline code`
+
+### Code Blocks
 
 \`\`\`javascript
-// Code blocks are supported
 console.log("Hello, World!");
 \`\`\`
-`,
-    featured: false // Set to true for featured posts
+
+> Blockquotes for important notes
+
+## Conclusion
+
+Your concluding thoughts...
+```
+
+3. **Update `posts/index.json`** with your post metadata:
+
+```json
+{
+  "filename": "my-new-post.md",
+  "slug": "my-new-post",
+  "title": "Your Post Title",
+  "date": "2024-02-01",
+  "category": "Technology",
+  "tags": ["tag1", "tag2", "tag3"],
+  "excerpt": "Brief description...",
+  "featured": false
 }
 ```
 
-### Method 2: Markdown Files (For future implementation)
+### Method 2: JavaScript Fallback
 
-You can also create markdown files in the `posts/` directory. The sample files there show the expected format:
+If you prefer or need to add posts directly in JavaScript (or if markdown loading fails), you can still edit `js/blog.js` and add posts to the `getFallbackPosts()` method.
 
-- `posts/sample-post-1.md`
-- `posts/sample-post-2.md` 
-- `posts/sample-post-3.md`
+### Current Sample Posts
 
-*Note: You'll need to implement a markdown file parser to use this method.*
+The blog includes three sample posts to demonstrate the format:
+- `posts/getting-started-with-my-blog.md`
+- `posts/thoughts-on-modern-web-development.md`
+- `posts/my-journey-learning-to-code.md`
 
 ## Customization
 

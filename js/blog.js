@@ -4,6 +4,7 @@ class BlogManager {
         this.posts = [];
         this.categories = new Set();
         this.currentTheme = localStorage.getItem('theme') || 'light';
+        this.markdownLoader = new MarkdownLoader();
         this.init();
     }
 
@@ -52,9 +53,30 @@ class BlogManager {
     }
 
     async loadPosts() {
-        // In a real implementation, you'd fetch from an API or load from markdown files
-        // For now, we'll use sample data that you can replace with your actual posts
-        this.posts = [
+        try {
+            // Try to load posts from markdown files
+            this.posts = await this.markdownLoader.loadAllPosts();
+            
+            // If no posts loaded from markdown, fall back to hardcoded posts
+            if (this.posts.length === 0) {
+                console.warn('No markdown posts found, using fallback posts');
+                this.posts = this.getFallbackPosts();
+            }
+        } catch (error) {
+            console.error('Error loading posts:', error);
+            // Fall back to hardcoded posts if there's an error
+            this.posts = this.getFallbackPosts();
+        }
+
+        // Extract categories
+        this.posts.forEach(post => {
+            this.categories.add(post.category);
+        });
+    }
+
+    getFallbackPosts() {
+        // Fallback posts in case markdown loading fails
+        return [
             {
                 id: 1,
                 title: "Getting Started with My Blog",
@@ -146,11 +168,6 @@ If you're just starting out, remember:
 4. Build projects you're passionate about`
             }
         ];
-
-        // Extract categories
-        this.posts.forEach(post => {
-            this.categories.add(post.category);
-        });
     }
 
     renderPosts() {

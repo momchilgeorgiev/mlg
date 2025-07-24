@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Parser Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        .info { color: #17a2b8; }
+        pre {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Markdown Parser Test</h1>
+    <p class="info">This page tests the markdown file loading functionality. Open browser console to see detailed logs.</p>
+
+    <div class="test-section">
+        <h2>Test 1: Load Posts Index</h2>
+        <div id="index-test">Loading...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 2: Load Sample Markdown Files</h2>
+        <div id="markdown-test">Loading...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 3: Parse Post Metadata</h2>
+        <div id="metadata-test">Loading...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 4: Full Blog Integration</h2>
+        <div id="integration-test">Loading...</div>
+    </div>
+
+    <script src="js/markdown-loader.js"></script>
+    <script>
+        async function runTests() {
+            const loader = new MarkdownLoader();
+            
+            // Test 1: Load posts index
+            try {
+                const index = await loader.loadPostsIndex();
+                document.getElementById('index-test').innerHTML = `
+                    <p class="success">✅ Posts index loaded successfully!</p>
+                    <p>Found ${index.length} posts in index:</p>
+                    <pre>${JSON.stringify(index, null, 2)}</pre>
+                `;
+            } catch (error) {
+                document.getElementById('index-test').innerHTML = `
+                    <p class="error">❌ Failed to load posts index: ${error.message}</p>
+                `;
+            }
+
+            // Test 2: Load markdown files
+            try {
+                const content = await loader.loadMarkdownFile('getting-started-with-my-blog.md');
+                const preview = content ? content.substring(0, 200) + '...' : 'No content';
+                document.getElementById('markdown-test').innerHTML = `
+                    <p class="success">✅ Markdown file loaded successfully!</p>
+                    <p>Preview of first post:</p>
+                    <pre>${preview}</pre>
+                `;
+            } catch (error) {
+                document.getElementById('markdown-test').innerHTML = `
+                    <p class="error">❌ Failed to load markdown file: ${error.message}</p>
+                `;
+            }
+
+            // Test 3: Parse metadata
+            try {
+                const sampleContent = \`# Test Post
+
+*Published: 2024-01-01 | Category: Test | Tags: test, example*
+
+This is a test post for metadata parsing.
+\`;
+                const metadata = loader.parseMarkdownMetadata(sampleContent);
+                document.getElementById('metadata-test').innerHTML = \`
+                    <p class="success">✅ Metadata parsed successfully!</p>
+                    <pre>\${JSON.stringify(metadata, null, 2)}</pre>
+                \`;
+            } catch (error) {
+                document.getElementById('metadata-test').innerHTML = \`
+                    <p class="error">❌ Failed to parse metadata: \${error.message}</p>
+                \`;
+            }
+
+            // Test 4: Full integration
+            try {
+                const posts = await loader.loadAllPosts();
+                document.getElementById('integration-test').innerHTML = \`
+                    <p class="success">✅ Full integration test passed!</p>
+                    <p>Loaded \${posts.length} posts successfully:</p>
+                    <ul>
+                        \${posts.map(post => \`<li><strong>\${post.title}</strong> (\${post.category})</li>\`).join('')}
+                    </ul>
+                \`;
+            } catch (error) {
+                document.getElementById('integration-test').innerHTML = \`
+                    <p class="error">❌ Integration test failed: \${error.message}</p>
+                \`;
+            }
+        }
+
+        // Run tests when page loads
+        document.addEventListener('DOMContentLoaded', runTests);
+    </script>
+</body>
+</html>
