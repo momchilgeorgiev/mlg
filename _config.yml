@@ -80,3 +80,6 @@ comments: false
 
 # Analytics (optional - can be enabled later)
 google_analytics: ""
+
+# Show future posts
+future: true
