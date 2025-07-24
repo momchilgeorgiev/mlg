@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>GitHub Pages Deployment Guide | Data Science &amp; Innovation Blog</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="GitHub Pages Deployment Guide" />
+<meta name="author" content="Your Name" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Exploring the frontiers of data science, machine learning, and innovation. Sharing insights, experiments, and discoveries in the world of data." />
+<meta property="og:description" content="Exploring the frontiers of data science, machine learning, and innovation. Sharing insights, experiments, and discoveries in the world of data." />
+<link rel="canonical" href="/mlg/GITHUB_PAGES_SETUP/" />
+<meta property="og:url" content="/mlg/GITHUB_PAGES_SETUP/" />
+<meta property="og:site_name" content="Data Science &amp; Innovation Blog" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="GitHub Pages Deployment Guide" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Your Name"},"description":"Exploring the frontiers of data science, machine learning, and innovation. Sharing insights, experiments, and discoveries in the world of data.","headline":"GitHub Pages Deployment Guide","url":"/mlg/GITHUB_PAGES_SETUP/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/mlg/assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="/mlg/feed.xml" title="Data Science &amp; Innovation Blog" /></head><body>
+  <div class="site-wrapper"><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      <div class="site-title">
+        <a href="/mlg/">Data Science &amp; Innovation Blog</a>
+      </div>
+      
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="nav-trigger-label">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="m18,1.484c0,0.82-0.665,1.484-1.484,1.484h-15.032c-0.819,0-1.484-0.665-1.484-1.484s0.665-1.484,1.484-1.484h15.032c0.819,0,1.484,0.665,1.484,1.484z"/>
+              <path d="m18,7.516c0,0.82-0.665,1.484-1.484,1.484h-15.032c-0.819,0-1.484-0.665-1.484-1.484s0.665-1.484,1.484-1.484h15.032c0.819,0,1.484,0.665,1.484,1.484z"/>
+              <path d="m18,13.516c0,0.82-0.665,1.484-1.484,1.484h-15.032c-0.819,0-1.484-0.665-1.484-1.484s0.665-1.484,1.484-1.484h15.032c0.819,0,1.484,0.665,1.484,1.484z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/mlg/">Home</a><a class="page-link" href="/mlg/blog/">Blog</a><a class="page-link" href="/mlg/about/">About</a><a class="page-link" href="/mlg/projects/">Projects</a><a class="page-link" href="/mlg/contact/">Contact</a></div>
+      </nav>
+    </div>
+  </div>
+</header><main class="main-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="content-grid">
+          <div class="main-column">
+            <div class="page">
+  <header class="page-header">
+    <h1 class="page-title">GitHub Pages Deployment Guide</h1></header>
+
+  <div class="page-content">
+    <h1 id="github-pages-deployment-guide">GitHub Pages Deployment Guide</h1>
+
+<p>This guide will help you deploy your Jekyll blog to GitHub Pages.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<ul>
+  <li>A GitHub account</li>
+  <li>Git installed on your computer</li>
+  <li>Your blog files ready to deploy</li>
+</ul>
+
+<h2 id="step-1-create-a-github-repository">Step 1: Create a GitHub Repository</h2>
+
+<ol>
+  <li>Go to <a href="https://github.com">GitHub</a> and sign in</li>
+  <li>Click the “+” icon in the top right corner</li>
+  <li>Select “New repository”</li>
+  <li>
+    <p>Choose one of these naming options:</p>
+
+    <p><strong>Option A: User/Organization Site</strong> (Recommended)</p>
+    <ul>
+      <li>Repository name: <code class="language-plaintext highlighter-rouge">yourusername.github.io</code></li>
+      <li>Your site will be available at: <code class="language-plaintext highlighter-rouge">https://yourusername.github.io</code></li>
+      <li>Set <code class="language-plaintext highlighter-rouge">baseurl: ""</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code></li>
+    </ul>
+
+    <p><strong>Option B: Project Site</strong></p>
+    <ul>
+      <li>Repository name: <code class="language-plaintext highlighter-rouge">my-blog</code> (or any name)</li>
+      <li>Your site will be available at: <code class="language-plaintext highlighter-rouge">https://yourusername.github.io/my-blog</code></li>
+      <li>Set <code class="language-plaintext highlighter-rouge">baseurl: "/my-blog"</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code></li>
+    </ul>
+  </li>
+  <li>Make sure the repository is <strong>Public</strong></li>
+  <li>Don’t initialize with README (we have our own files)</li>
+  <li>Click “Create repository”</li>
+</ol>
+
+<h2 id="step-2-configure-your-blog-for-github-pages">Step 2: Configure Your Blog for GitHub Pages</h2>
+
+<p>If you chose <strong>Option B</strong> (project site), update your <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">baseurl</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/your-repository-name"</span> <span class="c1"># Replace with your actual repo name</span>
+<span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <span class="c1"># GitHub Pages will set this automatically</span>
+</code></pre></div></div>
+
+<p>If you chose <strong>Option A</strong> (user site), your current configuration is already correct:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">baseurl</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+</code></pre></div></div>
+
+<h2 id="step-3-push-your-code-to-github">Step 3: Push Your Code to GitHub</h2>
+
+<ol>
+  <li><strong>Initialize Git</strong> (if not already done):
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
+git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"Initial commit: Jekyll blog setup"</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Connect to your GitHub repository</strong>:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin https://github.com/yourusername/your-repo-name.git
+git branch <span class="nt">-M</span> main
+git push <span class="nt">-u</span> origin main
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="step-4-enable-github-pages">Step 4: Enable GitHub Pages</h2>
+
+<ol>
+  <li>Go to your repository on GitHub</li>
+  <li>Click on “Settings” tab</li>
+  <li>Scroll down to “Pages” in the left sidebar</li>
+  <li>Under “Source”, select:
+    <ul>
+      <li><strong>Source</strong>: Deploy from a branch</li>
+      <li><strong>Branch</strong>: main</li>
+      <li><strong>Folder</strong>: / (root)</li>
+    </ul>
+  </li>
+  <li>Click “Save”</li>
+</ol>
+
+<h2 id="step-5-wait-for-deployment">Step 5: Wait for Deployment</h2>
+
+<ul>
+  <li>GitHub Pages will automatically build and deploy your site</li>
+  <li>This usually takes 1-10 minutes</li>
+  <li>You’ll see a green checkmark next to your commit when it’s ready</li>
+  <li>Your site will be available at:
+    <ul>
+      <li>User site: <code class="language-plaintext highlighter-rouge">https://yourusername.github.io</code></li>
+      <li>Project site: <code class="language-plaintext highlighter-rouge">https://yourusername.github.io/repository-name</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+
+<h3 id="404-error---file-not-found">404 Error - “File not found”</h3>
+
+<p><strong>Cause</strong>: Usually a configuration issue with baseurl or missing index.html</p>
+
+<p><strong>Solutions</strong>:</p>
+<ol>
+  <li><strong>Check your baseurl</strong> in <code class="language-plaintext highlighter-rouge">_config.yml</code>:
+    <ul>
+      <li>User site (<code class="language-plaintext highlighter-rouge">username.github.io</code>): <code class="language-plaintext highlighter-rouge">baseurl: ""</code></li>
+      <li>Project site: <code class="language-plaintext highlighter-rouge">baseurl: "/repository-name"</code></li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Verify index.html exists</strong> in your root directory (✅ You have this)</p>
+  </li>
+  <li><strong>Check repository name</strong>:
+    <ul>
+      <li>User site must be exactly <code class="language-plaintext highlighter-rouge">username.github.io</code></li>
+      <li>Project site can be any name</li>
+    </ul>
+  </li>
+  <li><strong>Wait for build to complete</strong>:
+    <ul>
+      <li>Check the “Actions” tab for build status</li>
+      <li>Green checkmark = successful build</li>
+      <li>Red X = build failed (check logs)</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="build-failures">Build Failures</h3>
+
+<p><strong>Check build logs</strong>:</p>
+<ol>
+  <li>Go to “Actions” tab in your repository</li>
+  <li>Click on the failed workflow</li>
+  <li>Check the error messages</li>
+</ol>
+
+<p><strong>Common fixes</strong>:</p>
+<ul>
+  <li>Remove any <code class="language-plaintext highlighter-rouge">_site/</code> folder from your repository</li>
+  <li>Ensure Gemfile uses <code class="language-plaintext highlighter-rouge">github-pages</code> gem</li>
+  <li>Check for syntax errors in <code class="language-plaintext highlighter-rouge">_config.yml</code></li>
+</ul>
+
+<h3 id="changes-not-showing">Changes Not Showing</h3>
+
+<ol>
+  <li><strong>Clear your browser cache</strong> (Ctrl+Shift+R or Cmd+Shift+R)</li>
+  <li><strong>Wait for build to complete</strong> (check Actions tab)</li>
+  <li><strong>Verify your changes were pushed</strong> to the main branch</li>
+</ol>
+
+<h2 id="testing-locally-before-deployment">Testing Locally Before Deployment</h2>
+
+<p>Always test your changes locally first:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll serve
+</code></pre></div></div>
+
+<p>Then visit <code class="language-plaintext highlighter-rouge">http://localhost:4000</code> to preview your site.</p>
+
+<h2 id="custom-domain-optional">Custom Domain (Optional)</h2>
+
+<p>To use a custom domain like <code class="language-plaintext highlighter-rouge">yourblog.com</code>:</p>
+
+<ol>
+  <li><strong>Add CNAME file</strong> to your repository root:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yourdomain.com
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Configure DNS</strong> with your domain provider:
+    <ul>
+      <li>Add a CNAME record pointing to <code class="language-plaintext highlighter-rouge">yourusername.github.io</code></li>
+    </ul>
+  </li>
+  <li><strong>Update _config.yml</strong>:
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://yourdomain.com"</span>
+<span class="na">baseurl</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="automated-deployment-workflow">Automated Deployment Workflow</h2>
+
+<p>Your current setup will automatically:</p>
+<ol>
+  <li>Build your site when you push changes</li>
+  <li>Deploy to GitHub Pages</li>
+  <li>Update your live site</li>
+</ol>
+
+<h2 id="making-updates">Making Updates</h2>
+
+<p>To update your blog:</p>
+
+<ol>
+  <li><strong>Make changes locally</strong></li>
+  <li><strong>Test locally</strong>: <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code></li>
+  <li><strong>Commit and push</strong>:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"Description of changes"</span>
+git push
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Wait for deployment</strong> (1-10 minutes)</li>
+</ol>
+
+<h2 id="security-notes">Security Notes</h2>
+
+<ul>
+  <li>Never commit sensitive information (API keys, passwords)</li>
+  <li>Your repository must be public for free GitHub Pages</li>
+  <li>Use environment variables for sensitive config</li>
+</ul>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<ol>
+  <li><strong>Customize your profile</strong>: Update <code class="language-plaintext highlighter-rouge">_config.yml</code> with your information</li>
+  <li><strong>Add your photo</strong>: Replace <code class="language-plaintext highlighter-rouge">/assets/images/profile.svg</code></li>
+  <li><strong>Write your first post</strong>: Add files to <code class="language-plaintext highlighter-rouge">_posts/</code></li>
+  <li><strong>Share your blog</strong>: Your site is now live!</li>
+</ol>
+
+<h2 id="support">Support</h2>
+
+<p>If you encounter issues:</p>
+<ol>
+  <li>Check this troubleshooting guide</li>
+  <li>Review GitHub Pages documentation</li>
+  <li>Check the repository’s Actions tab for build logs</li>
+  <li>Ensure your configuration matches the examples above</li>
+</ol>
+
+<hr />
+
+<p><strong>Your blog is now ready for the world! 🚀</strong></p>
+
+  </div>
+</div>
+          </div>
+          <div class="sidebar-column"><aside class="sidebar">
+  <div class="sidebar-section profile-section">
+    <div class="profile-image">
+      <img src="/mlg/assets/images/profile.svg" alt="Your Name" class="avatar">
+    </div>
+    <h3 class="profile-name">Your Name</h3>
+    <p class="profile-bio">Data Scientist & Innovation Enthusiast</p>
+    
+    <div class="social-links"><a href="https://linkedin.com/in/your-linkedin" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i>
+        </a><a href="https://github.com/your-github" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a><a href="https://twitter.com/your-twitter" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a><a href="mailto:your.email@example.com">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="sidebar-section recent-posts-sidebar">
+    <h4>Recent Posts</h4>
+    <ul class="recent-posts-list"><li>
+          <a href="/mlg/posts/2024-07-24-welcome-to-my-data-science-blog/">Welcome to My Data Science Blog</a>
+          <time class="sidebar-date">Jul 24</time>
+        </li><li>
+          <a href="/mlg/posts/2024-07-23-machine-learning-fundamentals/">Machine Learning Fundamentals: A Beginner's Guide</a>
+          <time class="sidebar-date">Jul 23</time>
+        </li><li>
+          <a href="/mlg/posts/2024-07-22-data-visualization-best-practices/">Data Visualization Best Practices: Making Your Data Tell a Story</a>
+          <time class="sidebar-date">Jul 22</time>
+        </li></ul>
+  </div>
+
+  <div class="sidebar-section categories-section">
+    <h4>Categories</h4>
+    <div class="categories-list"><span class="category-tag">data-visualization</span><span class="category-tag">general</span><span class="category-tag">introduction</span><span class="category-tag">machine-learning</span><span class="category-tag">tutorial</span></div>
+  </div>
+
+  <div class="sidebar-section contact-section">
+    <h4>Contact</h4>
+    <div class="contact-info">
+      <p><i class="fas fa-envelope"></i> your.email@example.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> Available for collaboration</p>
+    </div>
+  </div>
+</aside></div>
+        </div>
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-content">
+      <div class="footer-col footer-col-1">
+        <h4>Data Science & Innovation Blog</h4>
+        <p>Exploring the frontiers of data science, machine learning, and innovation. Sharing insights, experiments, and discoveries in the world of data.</p>
+      </div>
+      
+      <div class="footer-col footer-col-2">
+        <h4>Quick Links</h4>
+        <ul class="footer-links"><li><a href="/mlg/">Home</a></li><li><a href="/mlg/blog/">Blog</a></li><li><a href="/mlg/about/">About</a></li><li><a href="/mlg/projects/">Projects</a></li><li><a href="/mlg/contact/">Contact</a></li></ul>
+      </div>
+      
+      <div class="footer-col footer-col-3">
+        <h4>Connect</h4>
+        <div class="social-links"><a href="https://linkedin.com/in/your-linkedin" target="_blank" rel="noopener">
+              <i class="fab fa-linkedin"></i>
+            </a><a href="https://github.com/your-github" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a><a href="https://twitter.com/your-twitter" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a></div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Data Science & Innovation Blog. All rights reserved.</p>
+    </div>
+  </div>
+</footer></div>
+
+  <script src="/mlg/assets/js/main.js"></script>
+</body>
+
+</html>
