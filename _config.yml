@@ -4,8 +4,8 @@ email: your.email@example.com
 description: >-
   Exploring the frontiers of data science, machine learning, and innovation.
   Sharing insights, experiments, and discoveries in the world of data.
-baseurl: ""
-url: "http://localhost:4000"
+baseurl: "" # Leave empty if using custom domain or username.github.io, otherwise "/repository-name"
+url: "" # Will be set automatically by GitHub Pages
 
 # Author information
 author:
@@ -48,6 +48,10 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - README.md
+  - CUSTOMIZATION.md
+
+# GitHub Pages compatible settings
 
 # Theme colors and customization
 theme_config:
