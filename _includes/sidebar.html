@@ -1,0 +1,62 @@
+<aside class="sidebar">
+  <div class="sidebar-section profile-section">
+    <div class="profile-image">
+      <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" class="avatar">
+    </div>
+    <h3 class="profile-name">{{ site.author.name }}</h3>
+    <p class="profile-bio">{{ site.author.bio }}</p>
+    
+    <div class="social-links">
+      {%- if site.author.linkedin -%}
+        <a href="https://linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      {%- endif -%}
+      {%- if site.author.github -%}
+        <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      {%- endif -%}
+      {%- if site.author.twitter -%}
+        <a href="https://twitter.com/{{ site.author.twitter }}" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      {%- endif -%}
+      <a href="mailto:{{ site.author.email }}">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="sidebar-section recent-posts-sidebar">
+    <h4>Recent Posts</h4>
+    <ul class="recent-posts-list">
+      {%- for post in site.posts limit:5 -%}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <time class="sidebar-date">{{ post.date | date: "%b %d" }}</time>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+  <div class="sidebar-section categories-section">
+    <h4>Categories</h4>
+    <div class="categories-list">
+      {%- assign categories = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort -%}
+      {%- for category in categories -%}
+        {%- unless category == "" -%}
+          <span class="category-tag">{{ category }}</span>
+        {%- endunless -%}
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <div class="sidebar-section contact-section">
+    <h4>Contact</h4>
+    <div class="contact-info">
+      <p><i class="fas fa-envelope"></i> {{ site.author.email }}</p>
+      <p><i class="fas fa-map-marker-alt"></i> Available for collaboration</p>
+    </div>
+  </div>
+</aside>

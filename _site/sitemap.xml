@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4001/posts/2024-07-22-data-visualization-best-practices/</loc>
+<lastmod>2024-07-22T17:30:00+03:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4001/posts/2024-07-23-machine-learning-fundamentals/</loc>
+<lastmod>2024-07-23T12:00:00+03:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4001/posts/2024-07-24-welcome-to-my-data-science-blog/</loc>
+<lastmod>2024-07-24T13:00:00+03:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4001/about/</loc>
+</url>
+<url>
+<loc>http://localhost:4001/blog/</loc>
+</url>
+<url>
+<loc>http://localhost:4001/contact/</loc>
+</url>
+<url>
+<loc>http://localhost:4001/</loc>
+</url>
+<url>
+<loc>http://localhost:4001/projects/</loc>
+</url>
+</urlset>

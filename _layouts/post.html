@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <div class="post-meta">
+      <time class="post-date dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%B %d, %Y" }}
+      </time>
+      {%- if page.author -%}
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span class="p-author h-card" itemprop="name">{{ page.author }}</span>
+        </span>
+      {%- endif -%}
+      {%- if page.categories.size > 0 -%}
+        <div class="post-categories">
+          {%- for category in page.categories -%}
+            <span class="category">{{ category }}</span>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+      {%- if page.tags.size > 0 -%}
+        <div class="post-tags">
+          {%- for tag in page.tags -%}
+            <span class="tag">#{{ tag }}</span>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    <div class="post-navigation">
+      {%- if page.previous.url -%}
+        <div class="prev-post">
+          <a href="{{ page.previous.url | relative_url }}" rel="prev">
+            <span class="nav-label">← Previous</span>
+            <span class="nav-title">{{ page.previous.title }}</span>
+          </a>
+        </div>
+      {%- endif -%}
+      
+      {%- if page.next.url -%}
+        <div class="next-post">
+          <a href="{{ page.next.url | relative_url }}" rel="next">
+            <span class="nav-label">Next →</span>
+            <span class="nav-title">{{ page.next.title }}</span>
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+  </footer>
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>

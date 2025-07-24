@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<div class="home">
+  <div class="hero-section">
+    <h1 class="hero-title">{{ site.title }}</h1>
+    <p class="hero-description">{{ site.description }}</p>
+  </div>
+
+  <section class="recent-posts">
+    <h2 class="section-title">Recent Posts</h2>
+    
+    {%- if site.posts.size > 0 -%}
+      <div class="post-list">
+        {%- for post in site.posts limit:5 -%}
+          <article class="post-preview">
+            <div class="post-meta">
+              <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+                {{ post.date | date: "%B %d, %Y" }}
+              </time>
+              {%- if post.categories.size > 0 -%}
+                <span class="post-categories">
+                  {%- for category in post.categories -%}
+                    <span class="category">{{ category }}</span>
+                  {%- endfor -%}
+                </span>
+              {%- endif -%}
+            </div>
+            
+            <h3 class="post-title">
+              <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            </h3>
+            
+            {%- if post.excerpt -%}
+              <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+            {%- endif -%}
+            
+            <a href="{{ post.url | relative_url }}" class="read-more">Read more →</a>
+          </article>
+        {%- endfor -%}
+      </div>
+      
+      <div class="view-all-posts">
+        <a href="{{ "/blog/" | relative_url }}" class="btn btn-primary">View All Posts</a>
+      </div>
+    {%- else -%}
+      <p class="no-posts">No posts yet. Start writing your first blog post!</p>
+    {%- endif -%}
+  </section>
+
+  {{ content }}
+</div>

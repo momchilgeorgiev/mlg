@@ -1,0 +1,113 @@
+---
+layout: default
+title: Blog
+description: Explore articles on data science, machine learning, and innovation
+permalink: /blog/
+---
+
+<div class="blog-page">
+  <header class="blog-header">
+    <h1 class="page-title">Blog</h1>
+    <p class="page-description">{{ page.description }}</p>
+  </header>
+
+  <div class="search-container">
+    <input type="text" id="search-input" class="search-input" placeholder="Search articles...">
+  </div>
+
+  <div class="blog-content">
+    <div id="search-results" style="display: none;">
+      <h3>Search Results</h3>
+      <div id="search-results-list"></div>
+    </div>
+
+    <div id="all-posts">
+      {%- if site.posts.size > 0 -%}
+        <div class="post-list">
+          {%- for post in site.posts -%}
+            <article class="post-preview" data-title="{{ post.title | downcase }}" data-content="{{ post.content | strip_html | downcase }}" data-categories="{{ post.categories | join: ' ' | downcase }}" data-tags="{{ post.tags | join: ' ' | downcase }}">
+              <div class="post-meta">
+                <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+                  {{ post.date | date: "%B %d, %Y" }}
+                </time>
+                {%- if post.categories.size > 0 -%}
+                  <span class="post-categories">
+                    {%- for category in post.categories -%}
+                      <span class="category">{{ category }}</span>
+                    {%- endfor -%}
+                  </span>
+                {%- endif -%}
+              </div>
+              
+              <h3 class="post-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+              </h3>
+              
+              {%- if post.excerpt -%}
+                <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+              {%- endif -%}
+              
+              {%- if post.tags.size > 0 -%}
+                <div class="post-tags">
+                  {%- for tag in post.tags -%}
+                    <span class="tag">#{{ tag }}</span>
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+              
+              <a href="{{ post.url | relative_url }}" class="read-more">Read more →</a>
+            </article>
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <p class="no-posts">No posts yet. Start writing your first blog post!</p>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script>
+// Simple search functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  const searchResultsList = document.getElementById('search-results-list');
+  const allPosts = document.getElementById('all-posts');
+  const posts = document.querySelectorAll('.post-preview');
+
+  searchInput.addEventListener('input', function() {
+    const query = this.value.toLowerCase().trim();
+    
+    if (query === '') {
+      searchResults.style.display = 'none';
+      allPosts.style.display = 'block';
+      return;
+    }
+
+    const filteredPosts = Array.from(posts).filter(post => {
+      const title = post.getAttribute('data-title');
+      const content = post.getAttribute('data-content');
+      const categories = post.getAttribute('data-categories');
+      const tags = post.getAttribute('data-tags');
+      
+      return title.includes(query) || 
+             content.includes(query) || 
+             categories.includes(query) || 
+             tags.includes(query);
+    });
+
+    if (filteredPosts.length > 0) {
+      searchResultsList.innerHTML = '';
+      filteredPosts.forEach(post => {
+        searchResultsList.appendChild(post.cloneNode(true));
+      });
+      searchResults.style.display = 'block';
+      allPosts.style.display = 'none';
+    } else {
+      searchResultsList.innerHTML = '<p>No posts found matching your search.</p>';
+      searchResults.style.display = 'block';
+      allPosts.style.display = 'none';
+    }
+  });
+});
+</script>

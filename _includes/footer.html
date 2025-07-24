@@ -1,0 +1,44 @@
+<footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-content">
+      <div class="footer-col footer-col-1">
+        <h4>{{ site.title }}</h4>
+        <p>{{ site.description }}</p>
+      </div>
+      
+      <div class="footer-col footer-col-2">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          {%- for path in site.navigation -%}
+            <li><a href="{{ path.url | relative_url }}">{{ path.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      
+      <div class="footer-col footer-col-3">
+        <h4>Connect</h4>
+        <div class="social-links">
+          {%- if site.author.linkedin -%}
+            <a href="https://linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          {%- endif -%}
+          {%- if site.author.github -%}
+            <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          {%- endif -%}
+          {%- if site.author.twitter -%}
+            <a href="https://twitter.com/{{ site.author.twitter }}" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
