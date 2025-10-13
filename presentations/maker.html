@@ -1,0 +1,106 @@
+---
+layout: page
+title: Presentation Maker
+permalink: /presentations/maker/
+description: Assemble slide decks with the custom HTML presentation template and export a ready-to-host file.
+---
+
+<div class="presentation-maker">
+  <div class="maker-layout">
+    <aside class="maker-sidebar">
+      <h2 class="maker-heading">Slides</h2>
+      <div class="maker-toolbar">
+        <button type="button" class="btn btn-primary" id="addSlideBtn">Add slide</button>
+        <button type="button" class="btn" id="duplicateSlideBtn">Duplicate</button>
+        <button type="button" class="btn" id="deleteSlideBtn">Delete</button>
+      </div>
+      <ul id="slideList" class="slide-list" aria-label="Slide list"></ul>
+    </aside>
+
+    <section class="maker-editor">
+      <div class="editor-section">
+        <h2 class="maker-heading">Deck settings</h2>
+        <div class="field">
+          <label for="deckTitle">Deck title</label>
+          <input type="text" id="deckTitle" placeholder="e.g. Customer Journey Analysis" />
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label for="deckLang">Document language</label>
+            <input type="text" id="deckLang" placeholder="e.g. bg or en" />
+          </div>
+          <div class="field">
+            <label for="deckBrand">Brand / course label</label>
+            <input type="text" id="deckBrand" placeholder="e.g. НБУ · BUBB650 Международен маркетинг" />
+          </div>
+          <div class="field">
+            <label for="deckTheme">Default theme</label>
+            <select id="deckTheme">
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="deckDescription">Deck description (meta)</label>
+          <input type="text" id="deckDescription" placeholder="Optional description for search / sharing" />
+        </div>
+      </div>
+
+      <div class="editor-section">
+        <div class="editor-header">
+          <h2 class="maker-heading">Slide editor</h2>
+          <div class="field">
+            <label for="slideLayout">Layout</label>
+            <select id="slideLayout">
+              <option value="single">Single column</option>
+              <option value="two">Two columns</option>
+              <option value="three">Three columns</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label for="slideLabel">Slide label (overview)</label>
+            <input type="text" id="slideLabel" placeholder="Shown in overview panel" />
+          </div>
+          <div class="field">
+            <label for="slideSubtitle">Card subtitle</label>
+            <input type="text" id="slideSubtitle" placeholder="Optional small subtitle" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="slideTitle">Slide title</label>
+          <input type="text" id="slideTitle" placeholder="Main heading" />
+        </div>
+
+        <div id="columnEditors" class="column-editors"></div>
+
+        <details class="helper-tips">
+          <summary>Helpful snippets</summary>
+          <p>Content fields accept Markdown. You can also paste HTML for custom components.</p>
+          <ul>
+            <li><code>**Bold text**</code> → bold emphasis.</li>
+            <li><code>- Bullet item</code> → checklist styled list.</li>
+            <li>Use <code>&lt;div class="chip"&gt;Chip label&lt;/div&gt;</code> to render chips.</li>
+            <li>Add <code>&lt;div class="grid cols-3"&gt;...&lt;/div&gt;</code> in single layout for nested grids.</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="maker-actions">
+        <button type="button" class="btn btn-primary" id="exportBtn">Export HTML</button>
+        <button type="button" class="btn" id="copyHtmlBtn">Copy HTML</button>
+      </div>
+    </section>
+
+    <section class="maker-preview">
+      <h2 class="maker-heading">Live preview</h2>
+      <iframe id="previewFrame" title="Presentation preview"></iframe>
+      <p class="muted helper-text">Preview reflects the exported file. Use the navigation controls inside the preview to test interactions.</p>
+    </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" integrity="sha384-dZBoNvKcJsteVEh9UpAJZciV06P88eaJEqn3Ejj6+UeJ8V+RaH//RUW2KIiMzZLr" crossorigin="anonymous"></script>
+<script src="{{ '/assets/js/presentation-maker.js' | relative_url }}"></script>

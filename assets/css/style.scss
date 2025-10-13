@@ -612,6 +612,255 @@ a {
   }
 }
 
+// Presentation maker
+.presentation-maker {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.maker-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr) 360px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.maker-heading {
+  margin: 0 0 1rem 0;
+  font-size: 1.4rem;
+}
+
+.maker-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--sidebar-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.maker-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.slide-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 60vh;
+  overflow: auto;
+}
+
+.slide-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: var(--background-color);
+  transition: var(--transition);
+}
+
+.slide-list-item.is-active {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow);
+}
+
+.slide-select {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+.slide-number {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-color);
+}
+
+.slide-row-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--sidebar-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.icon-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.maker-editor {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.editor-section {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 180px;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.column-editors {
+  display: grid;
+  gap: 1rem;
+}
+
+.helper-tips {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  background: var(--sidebar-color);
+  font-size: 0.9rem;
+}
+
+.helper-tips summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.helper-tips ul {
+  margin: 0.75rem 0 0 1.25rem;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.maker-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.maker-preview {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  position: sticky;
+  top: 100px;
+}
+
+.maker-preview iframe {
+  width: 100%;
+  min-height: 480px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  background: #0b0c10;
+}
+
+.helper-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .maker-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .maker-preview {
+    position: static;
+  }
+}
+
+@media (max-width: 960px) {
+  .maker-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .slide-list {
+    max-height: 320px;
+  }
+
+  .maker-preview iframe {
+    min-height: 360px;
+  }
+}
+
 // Footer
 .site-footer {
   background-color: var(--primary-color);

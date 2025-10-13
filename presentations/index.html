@@ -7,6 +7,7 @@ description: Personal library of HTML presentations
 
 <section class="presentations-intro">
   <p>This page keeps direct links to my HTML presentations. It stays off the main navigation, so bookmark it for quick access.</p>
+  <p class="muted">Need to create a new deck? Launch the <a href="{{ '/presentations/maker/' | relative_url }}">presentation maker</a> to compose slides and export the finished HTML.</p>
 </section>
 
 {%- assign presentations = site.static_files | where_exp: "file", "file.path contains '/html_presentations/'" -%}
