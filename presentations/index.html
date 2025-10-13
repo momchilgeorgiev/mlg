@@ -1,0 +1,39 @@
+---
+layout: page
+title: Presentations
+permalink: /presentations/
+description: Personal library of HTML presentations
+---
+
+<section class="presentations-intro">
+  <p>This page keeps direct links to my HTML presentations. It stays off the main navigation, so bookmark it for quick access.</p>
+</section>
+
+{%- assign presentations = site.static_files | where_exp: "file", "file.path contains '/html_presentations/'" -%}
+
+{%- if presentations.size > 0 -%}
+  <div class="presentations-grid">
+    {%- for presentation in presentations -%}
+      {%- assign file_name = presentation.path | split: '/' | last -%}
+      {%- assign title = file_name | replace: '_', ' ' | replace: '-', ' ' | replace: '.html', '' -%}
+      <article class="presentation-card">
+        <div class="presentation-thumbnail">
+          <iframe
+            src="{{ presentation.path | relative_url }}"
+            title="{{ title | escape }}"
+            loading="lazy"
+            sandbox="allow-same-origin allow-scripts allow-popups"
+          ></iframe>
+        </div>
+        <div class="presentation-meta">
+          <h2 class="presentation-title">{{ title }}</h2>
+          <a class="btn btn-primary" href="{{ presentation.path | relative_url }}" target="_blank" rel="noopener">
+            Open presentation
+          </a>
+        </div>
+      </article>
+    {%- endfor -%}
+  </div>
+{%- else -%}
+  <p>No presentations found yet. Drop HTML files into the <code>html_presentations</code> directory and they will appear here automatically.</p>
+{%- endif -%}
