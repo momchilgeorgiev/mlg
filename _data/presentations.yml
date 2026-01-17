@@ -1,0 +1,19 @@
+# Presentations
+# Add your presentation links here
+#
+# Each presentation should have:
+#   - title: The presentation name
+#   - url: The presentation link (Canva, Google Slides, etc.)
+#   - date: Date in YYYY-MM-DD format
+#   - description: (optional) Short description
+
+presentations:
+  - title: "Learning through play"
+    url: "https://www.canva.com/design/DAG-NvsV31c/ZMEFWNQu1Ilagb0hgCuNSg/view"
+    date: 2026-01-17
+    description: "Presentation at NBU"
+
+  - title: "Mettle GEO pitch deck"
+    url: "https://www.canva.com/design/DAG6XUR5G3w/w8xPubdHr7HIIZWwYm4Jig/edit?utm_content=DAG6XUR5G3w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+    date: 2026-01-01
+    description: ""

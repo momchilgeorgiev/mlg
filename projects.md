@@ -5,31 +5,19 @@ description: A showcase of my data science projects and experiments
 permalink: /projects/
 ---
 
-# Projects
-
-Here's a collection of my data science projects, experiments, and contributions. Each project represents a learning journey and exploration into different aspects of data science and machine learning.
-
 ## Featured Projects
 
-### 🔬 Machine Learning Experiments
-*Coming soon...*
+### 💧 WaterWise
 
-Exploring various ML algorithms and their applications across different domains.
+WaterWise is a Chrome extension that estimates and visualizes the water consumption of your ChatGPT conversations based on 2024-2025 research studies.
 
-### 📊 Data Visualization Studies
-*Coming soon...*
+Google web store [link](https://chromewebstore.google.com/detail/waterwise/cfocmkpinofpffkpndgeefbpaemkdfbf) and  Github [link](https://github.com/momchilgeorgiev/waterwise/tree/main).
 
-Creating compelling visualizations to tell stories with data.
+### ⭐️ Arx-get
 
-### 🤖 AI Innovation Projects
-*Coming soon...*
+A Chrome/Brave extension that downloads arXiv PDFs with their actual paper titles instead of numeric IDs.
 
-Experimenting with cutting-edge AI technologies and their practical applications.
-
-### 📈 Business Intelligence Solutions
-*Coming soon...*
-
-Developing data-driven solutions for business challenges.
+Web store link [here](https://chromewebstore.google.com/detail/arx-get/jmefnenopbenhbdnkdgapihgnmfghejl?authuser=0&hl=en) and Github link [here](https://github.com/momchilgeorgiev/arx-get).
 
 ---
 
@@ -42,5 +30,3 @@ I believe in the power of open source and try to contribute back to the communit
 I'm always open to collaborating on interesting data science projects. If you have an idea or a challenge you'd like to work on together, feel free to reach out!
 
 ---
-
-*This page will be updated regularly as new projects are completed. Stay tuned for exciting developments!*

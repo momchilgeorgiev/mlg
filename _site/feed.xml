@@ -1,3 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/mlg/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/mlg/" rel="alternate" type="text/html" /><updated>2025-10-13T15:18:09+03:00</updated><id>http://localhost:4000/mlg/feed.xml</id><title type="html">Momchil’s Blog</title><subtitle>Free thought dumping about data science and nerdy things.</subtitle><author><name>Momchil Georgiev</name><email>m.georgiev@vvv-agency.com</email></author><entry><title type="html">Test post</title><link href="http://localhost:4000/mlg/posts/2025-07-24-test/" rel="alternate" type="text/html" title="Test post" /><published>2025-07-24T00:00:00+03:00</published><updated>2025-07-24T00:00:00+03:00</updated><id>http://localhost:4000/mlg/posts/test</id><content type="html" xml:base="http://localhost:4000/mlg/posts/2025-07-24-test/"><![CDATA[<h1 id="this-is-a-test-post">This is a test post</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/mlg/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/mlg/" rel="alternate" type="text/html" /><updated>2026-01-17T15:11:30+02:00</updated><id>http://localhost:4000/mlg/feed.xml</id><title type="html">Momchil’s Blog</title><subtitle>Free thought dumping about data science and nerdy things.</subtitle><author><name>Momchil Georgiev</name><email>m.georgiev@vvv-agency.com</email></author><entry><title type="html">WaterWise extension</title><link href="http://localhost:4000/mlg/posts/2026-01-20-waterwise/" rel="alternate" type="text/html" title="WaterWise extension" /><published>2026-01-20T00:00:00+02:00</published><updated>2026-01-20T00:00:00+02:00</updated><id>http://localhost:4000/mlg/posts/waterwise</id><content type="html" xml:base="http://localhost:4000/mlg/posts/2026-01-20-waterwise/"><![CDATA[<h1 id="about">About</h1>
+
+<p>I’ve heard a lot of concerns from a few people that I know about how bad LLMs are for the environment, mainly the use of <em>water</em>. I researched it and found that generally, when we use ChatGPT (latest models) we use 15ml per 100 generated words. But the ChatGPT or OpenAI in generally don’t use it for literally drinking, but for cooling.</p>
+
+<p>Given the current environmental condition of our planet and our water consumption and waste, I decided that it will be an interesting project and mental experiment (guilt tripping basically) to create a visual way of knowing what’s the non-monetary cost of our LLM usage for the most popular LLM platform in the world (currently).</p>
+
+<p>It is also my way of helping the environment through conscious use of this technology. Certainly for me, I try to use ChatGPT, and other platforms, such as Claude, less, exactly because of the guilt I feel. Idk, it works for me :)</p>
+
+<p>And here is the extension. It is available at the google web store and Github. Free and open source.</p>
+
+<ul>
+  <li>
+    <p>Google web store:
+<a href="https://chromewebstore.google.com/detail/waterwise/cfocmkpinofpffkpndgeefbpaemkdfbf">link</a></p>
+  </li>
+  <li>
+    <p>Github:
+<a href="https://github.com/momchilgeorgiev/waterwise/tree/main">link</a></p>
+  </li>
+</ul>
+
+<h3 id="key-studies--reports">Key Studies &amp; Reports:</h3>
+
+<p>-University of California, Riverside (2023): “Making AI Less Thirsty” - Study on water consumption in AI training and inference</p>
+
+<p>-OpenAI Infrastructure Reports (2024): Analysis of GPT-4 operational costs including water usage</p>
+
+<p>-Data Center Efficiency Studies (2024-2025): Industry reports on PUE (Power Usage Effectiveness) and WUE (Water Usage Effectiveness)</p>
+
+<p>-Google &amp; Microsoft Sustainability Reports: Published water consumption metrics for cloud AI services</p>]]></content><author><name>Momchil Georgiev</name><email>m.georgiev@vvv-agency.com</email></author><category term="personal project" /><category term="vibecoding" /><category term="web" /><category term="personal project" /><category term="open source" /><summary type="html"><![CDATA[WaterWise is a Chrome extension that estimates and visualizes the water consumption of your ChatGPT conversations based on 2024-2025 research studies.]]></summary></entry><entry><title type="html">Arx-get extension</title><link href="http://localhost:4000/mlg/posts/2026-01-17-arx-get/" rel="alternate" type="text/html" title="Arx-get extension" /><published>2026-01-17T00:00:00+02:00</published><updated>2026-01-17T00:00:00+02:00</updated><id>http://localhost:4000/mlg/posts/arx-get</id><content type="html" xml:base="http://localhost:4000/mlg/posts/2026-01-17-arx-get/"><![CDATA[<h1 id="about">About</h1>
+
+<p>Recently I had to download many research studies from Arxiv and I found it really confusing and cumbersome to organize and rename all of my pdf formatted files. This is why I vibecoded arx-get.</p>
+
+<p>It is completely free and available both on github and the google web store. Web store link <a href="https://chromewebstore.google.com/detail/arx-get/jmefnenopbenhbdnkdgapihgnmfghejl?authuser=0&amp;hl=en">here</a> and Github link <a href="https://github.com/momchilgeorgiev/arx-get">here</a>.</p>
+
+<p><img src="https://lh3.googleusercontent.com/Le1-vkj9NRcct76R6NujlBjvIIhQcexZYd_HWKOBICsdiCxbbxb6Vv6lKyKaNJAjQVvo8J-KrB8QiSMy3qXQr-_xHGY=s1280-w1280-h800" alt="image" /></p>
+
+<p>Cheers.</p>]]></content><author><name>Momchil Georgiev</name><email>m.georgiev@vvv-agency.com</email></author><category term="personal project" /><category term="vibecoding" /><category term="web" /><category term="personal project" /><category term="open source" /><summary type="html"><![CDATA[A Chrome/Brave extension that downloads arXiv PDFs with their actual paper titles instead of numeric IDs.]]></summary></entry><entry><title type="html">Test post</title><link href="http://localhost:4000/mlg/posts/2025-07-24-test/" rel="alternate" type="text/html" title="Test post" /><published>2025-07-24T00:00:00+03:00</published><updated>2025-07-24T00:00:00+03:00</updated><id>http://localhost:4000/mlg/posts/test</id><content type="html" xml:base="http://localhost:4000/mlg/posts/2025-07-24-test/"><![CDATA[<h1 id="this-is-a-test-post">This is a test post</h1>
 
 <p>It’s cool, isn’t it?</p>]]></content><author><name>Momchil Georgiev</name><email>m.georgiev@vvv-agency.com</email></author><category term="testing" /><category term="visualization" /><category term="matplotlib" /><category term="seaborn" /><category term="plotly" /><category term="storytelling" /><summary type="html"><![CDATA[Learn how to create compelling data visualizations that effectively communicate insights and tell meaningful stories with your data.]]></summary></entry></feed>
