@@ -2,7 +2,7 @@
 title: Momchil's Blog
 email: your.email@example.com
 description: >-
-  Free thought dumping about data science and nerdy things.
+  Free thought dumping about data science and nerdy things. Posting a couple of times a year.
 baseurl: "/mlg" # Must match your repository name for project sites
 url: "" # Will be set automatically by GitHub Pages
 
@@ -69,6 +69,10 @@ navigation:
     url: /about/
   - title: Projects
     url: /projects/
+  - title: Presentations
+    url: /presentations/
+  - title: Excalidraw
+    url: /excalidraw/
   - title: FossFLOW
     url: /fossflow/
   - title: Contact
