@@ -13,12 +13,12 @@ NULLCMD = :
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /opt/homebrew/Cellar/ruby/3.4.4/include/ruby-3.4.0
+topdir = /opt/homebrew/Cellar/ruby/3.4.7/include/ruby-3.4.0
 hdrdir = $(topdir)
-arch_hdrdir = /opt/homebrew/Cellar/ruby/3.4.4/include/ruby-3.4.0/arm64-darwin24
+arch_hdrdir = /opt/homebrew/Cellar/ruby/3.4.7/include/ruby-3.4.0/arm64-darwin25
 PATH_SEPARATOR = :
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/opt/homebrew/Cellar/ruby/3.4.4
+prefix = $(DESTDIR)/opt/homebrew/Cellar/ruby/3.4.7
 rubysitearchprefix = $(rubylibprefix)/$(sitearch)
 rubyarchprefix = $(rubylibprefix)/$(arch)
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
@@ -91,8 +91,8 @@ INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir
 DEFS     = 
 CPPFLAGS = -DHAVE_BUILTIN___BUILTIN_CLZ -DHAVE_BUILTIN___BUILTIN_CLZL -DHAVE_BUILTIN___BUILTIN_CLZLL -DHAVE_FLOAT_H -DHAVE_MATH_H -DHAVE_STDBOOL_H -DHAVE_STDLIB_H -DHAVE_LABS -DHAVE_LLABS -DHAVE_RUBY_ATOMIC_H -DHAVE_RUBY_INTERNAL_HAS_BUILTIN_H -DHAVE_RUBY_INTERNAL_STATIC_ASSERT_H -DHAVE_RB_RATIONAL_NUM -DHAVE_RB_RATIONAL_DEN -DHAVE_RB_COMPLEX_REAL -DHAVE_RB_COMPLEX_IMAG -DHAVE_RB_OPTS_EXCEPTION_P -DHAVE_RB_CATEGORY_WARN -DHAVE_CONST_RB_WARN_CATEGORY_DEPRECATED -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT $(DEFS) $(cppflags)
 CXXFLAGS = $(CCDLFLAGS) -fdeclspec $(ARCH_FLAG)
-ldflags  = -L. -fstack-protector-strong -L/opt/homebrew/Cellar/libyaml/0.2.5/lib -L/opt/homebrew/Cellar/openssl@3/3.5.0/lib
-dldflags = -L/opt/homebrew/Cellar/libyaml/0.2.5/lib -L/opt/homebrew/Cellar/openssl@3/3.5.0/lib -Wl,-undefined,dynamic_lookup 
+ldflags  = -L. -fstack-protector-strong -L/opt/homebrew/Cellar/libyaml/0.2.5/lib -L/opt/homebrew/Cellar/openssl@3/3.6.0/lib
+dldflags = -L/opt/homebrew/Cellar/libyaml/0.2.5/lib -L/opt/homebrew/Cellar/openssl@3/3.6.0/lib -Wl,-undefined,dynamic_lookup 
 ARCH_FLAG = -arch arm64
 DLDFLAGS = $(ldflags) $(dldflags) $(ARCH_FLAG)
 LDSHARED = $(CC) -dynamic -bundle
@@ -109,7 +109,7 @@ RUBY_VERSION_NAME = $(RUBY_BASE_NAME)-$(ruby_version)
 RUBYW_BASE_NAME = rubyw
 RUBY_BASE_NAME = ruby
 
-arch = arm64-darwin24
+arch = arm64-darwin25
 sitearch = $(arch)
 ruby_version = 3.4.0
 ruby = $(bindir)/$(RUBY_BASE_NAME)

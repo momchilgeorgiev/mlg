@@ -13,12 +13,12 @@ NULLCMD = :
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /opt/homebrew/Cellar/ruby/3.4.4/include/ruby-3.4.0
+topdir = /opt/homebrew/Cellar/ruby/3.4.7/include/ruby-3.4.0
 hdrdir = $(topdir)
-arch_hdrdir = /opt/homebrew/Cellar/ruby/3.4.4/include/ruby-3.4.0/arm64-darwin24
+arch_hdrdir = /opt/homebrew/Cellar/ruby/3.4.7/include/ruby-3.4.0/arm64-darwin25
 PATH_SEPARATOR = :
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/opt/homebrew/Cellar/ruby/3.4.4
+prefix = $(DESTDIR)/opt/homebrew/Cellar/ruby/3.4.7
 rubysitearchprefix = $(rubylibprefix)/$(sitearch)
 rubyarchprefix = $(rubylibprefix)/$(arch)
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
@@ -91,8 +91,8 @@ INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir
 DEFS     = 
 CPPFLAGS = -DHAVE_RB_ENC_INTERNED_STR -DHAVE_RB_HASH_NEW_CAPA -DHAVE_RB_HASH_BULK_INSERT -DHAVE_STRNLEN -DHAVE_ARM_NEON_H -DJSON_ENABLE_SIMD -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT $(DEFS) $(cppflags)
 CXXFLAGS = $(CCDLFLAGS) -fdeclspec $(ARCH_FLAG)
-ldflags  = -L. -fstack-protector-strong -L/opt/homebrew/Cellar/libyaml/0.2.5/lib -L/opt/homebrew/Cellar/openssl@3/3.5.0/lib
-dldflags = -L/opt/homebrew/Cellar/libyaml/0.2.5/lib -L/opt/homebrew/Cellar/openssl@3/3.5.0/lib -Wl,-undefined,dynamic_lookup 
+ldflags  = -L. -fstack-protector-strong -L/opt/homebrew/Cellar/libyaml/0.2.5/lib -L/opt/homebrew/Cellar/openssl@3/3.6.0/lib
+dldflags = -L/opt/homebrew/Cellar/libyaml/0.2.5/lib -L/opt/homebrew/Cellar/openssl@3/3.6.0/lib -Wl,-undefined,dynamic_lookup 
 ARCH_FLAG = -arch arm64
 DLDFLAGS = $(ldflags) $(dldflags) $(ARCH_FLAG)
 LDSHARED = $(CC) -dynamic -bundle
@@ -109,7 +109,7 @@ RUBY_VERSION_NAME = $(RUBY_BASE_NAME)-$(ruby_version)
 RUBYW_BASE_NAME = rubyw
 RUBY_BASE_NAME = ruby
 
-arch = arm64-darwin24
+arch = arm64-darwin25
 sitearch = $(arch)
 ruby_version = 3.4.0
 ruby = $(bindir)/$(RUBY_BASE_NAME)
