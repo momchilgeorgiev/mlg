@@ -8,6 +8,12 @@
 #   - description: (optional) Short description
 
 presentations:
+
+  - title: "Controlling systems in ESG, NBU"
+    url: "https://www.canva.com/design/DAG-4494Ym0/iG2sMhC9CiGjuDJJZVM1SQ/edit?utm_content=DAG-4494Ym0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+    date: 2026-01-20
+    description: "Presentation at NBU"
+    
   - title: "Learning through play"
     url: "https://www.canva.com/design/DAG-NvsV31c/ZMEFWNQu1Ilagb0hgCuNSg/view"
     date: 2026-01-17
@@ -17,3 +23,5 @@ presentations:
     url: "https://www.canva.com/design/DAG-4H87wFM/60ienBPr0WhvBhD5mC-NKg/edit?utm_content=DAG-4H87wFM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
     date: 2026-01-01
     description: ""
+
+  
