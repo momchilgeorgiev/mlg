@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+{%- include head.html -%}
+
+<body>
+  <div class="site-wrapper site-wrapper--dashboard">
+    {%- include header.html -%}
+
+    <main class="main-content main-content--dashboard" aria-label="Content">
+      <div class="wrapper wrapper--dashboard">
+        {{ content }}
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+  </div>
+
+  <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+</body>
+
+</html>
