@@ -7,6 +7,12 @@ permalink: /projects/
 
 ## Featured Projects
 
+### 🏫 NBU Dashboard
+
+An upload-based teaching dashboard for the "Data-driven business decisions" class at NBU. Students can load an Excel workbook and immediately see how sales, customer reviews, and staffing combine into a business story with strengths, weak points, and discussion prompts.
+
+Open the project [here]({{ "/projects/nbu-dashboard/" | relative_url }}).
+
 ### 💧 WaterWise
 
 WaterWise is a Chrome extension that estimates and visualizes the water consumption of your ChatGPT conversations based on 2024-2025 research studies.
