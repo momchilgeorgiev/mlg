@@ -1,0 +1,376 @@
+---
+layout: dashboard
+title: NBU Dashboard
+description: Upload a class workbook and turn sales, reviews, and staffing data into a business story.
+permalink: /projects/nbu-dashboard/
+---
+
+<div class="nbu-dashboard-page">
+  <section class="nbu-hero">
+    <div class="nbu-hero-copy">
+      <div class="nbu-brand-row">
+        <div class="nbu-logo-frame">
+          <img
+            class="nbu-logo"
+            src="https://www.nbu.bg/images/logo_bg.png"
+            alt="New Bulgarian University logo"
+          />
+        </div>
+      </div>
+      <span class="nbu-eyebrow">New Bulgarian University | Data-driven business decisions</span>
+      <h1>NBU Dashboard</h1>
+      <p class="nbu-hero-lead">
+        A teaching dashboard for business students: upload a sales workbook, inspect the charts, and discuss what the data is really saying about operations, customer experience, and decision-making.
+      </p>
+      <div class="nbu-hero-actions">
+        <a class="btn btn-primary" href="#dashboard-workspace">Open dashboard</a>
+        <a class="btn nbu-btn-secondary" href="#dashboard-guide">How to read it</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="nbu-upload-panel" id="dashboard-workspace">
+    <div class="nbu-upload-card">
+      <div>
+        <p class="nbu-section-label">Upload workbook</p>
+        <h2>Turn spreadsheet tabs into a dashboard story</h2>
+        <p>
+          The page expects the same structure as the classroom demo: hourly sales, customer reviews, and staff schedule. Processing stays in the browser, so students can experiment safely on desktop or phone.
+        </p>
+      </div>
+
+      <div class="nbu-upload-actions">
+        <label class="nbu-file-input">
+          <input id="dashboard-file-input" type="file" accept=".xlsx,.xls" />
+          <span><i class="fas fa-file-upload" aria-hidden="true"></i> Choose Excel file</span>
+        </label>
+        <button class="btn nbu-btn-secondary" id="load-demo-data" type="button">Load demo dataset</button>
+      </div>
+
+      <div class="nbu-upload-meta">
+        <p id="dashboard-status" class="nbu-status" aria-live="polite">
+          No file loaded yet. Use the demo dataset or upload the workbook from class.
+        </p>
+        <p class="nbu-helper-copy">
+          Expected tabs: <code>Продажби по часове</code>, <code>Отзиви на клиенти</code>, <code>График на персонала</code>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="nbu-kpi-grid" id="kpi-grid">
+    <article class="nbu-kpi-card">
+      <p class="nbu-kpi-label">Revenue trend</p>
+      <h3 id="kpi-revenue-trend">Upload data</h3>
+      <p id="kpi-revenue-copy">The dashboard will calculate the change from the first to the last month in the sheet.</p>
+    </article>
+    <article class="nbu-kpi-card">
+      <p class="nbu-kpi-label">Peak hour</p>
+      <h3 id="kpi-peak-hour">Waiting for data</h3>
+      <p id="kpi-peak-copy">The busiest hour window appears here after the workbook is processed.</p>
+    </article>
+    <article class="nbu-kpi-card">
+      <p class="nbu-kpi-label">Customer wait time</p>
+      <h3 id="kpi-rating">Waiting for reviews</h3>
+      <p id="kpi-rating-copy">Average rating and the share of waiting-related reviews will appear here.</p>
+    </article>
+    <article class="nbu-kpi-card">
+      <p class="nbu-kpi-label">Staffing pressure</p>
+      <h3 id="kpi-staffing">Waiting for schedule</h3>
+      <p id="kpi-staffing-copy">This card highlights the period where demand appears heavy relative to staffing.</p>
+    </article>
+  </section>
+
+  <section class="nbu-tabs-shell">
+    <div class="nbu-tab-list" role="tablist" aria-label="NBU dashboard stories">
+      <button
+        id="hero-tab"
+        class="nbu-tab-button is-active"
+        type="button"
+        role="tab"
+        aria-selected="true"
+        aria-controls="hero-tab-panel"
+        data-tab-target="hero-tab-panel"
+      >
+        Hero tab
+      </button>
+      <button
+        id="insights-tab"
+        class="nbu-tab-button"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="insights-tab-panel"
+        data-tab-target="insights-tab-panel"
+        tabindex="-1"
+      >
+        Insights tab
+      </button>
+      <button
+        id="prediction-tab"
+        class="nbu-tab-button"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="prediction-tab-panel"
+        data-tab-target="prediction-tab-panel"
+        tabindex="-1"
+      >
+        Prediction tab
+      </button>
+      <button
+        id="raw-data-tab"
+        class="nbu-tab-button"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="raw-data-tab-panel"
+        data-tab-target="raw-data-tab-panel"
+        tabindex="-1"
+      >
+        Raw data tab
+      </button>
+    </div>
+
+    <section
+      id="hero-tab-panel"
+      class="nbu-tab-panel is-active"
+      role="tabpanel"
+      aria-labelledby="hero-tab"
+      data-tab-panel
+    >
+      <div class="nbu-tab-intro">
+        <p class="nbu-section-label">Hero tab</p>
+        <h2>The headline story for the class</h2>
+        <p id="hero-tab-summary">
+          This tab gives students the first read: what changed, where demand sits, and why the dashboard matters before they go deeper.
+        </p>
+      </div>
+
+      <section class="nbu-quick-grid">
+        <article class="nbu-story-card">
+          <p class="nbu-section-label">Headline risk</p>
+          <h3 id="hero-risk-title">Load data</h3>
+          <p id="hero-risk-copy">The biggest business risk will appear here.</p>
+        </article>
+        <article class="nbu-story-card">
+          <p class="nbu-section-label">Stable zone</p>
+          <h3 id="hero-stable-title">Load data</h3>
+          <p id="hero-stable-copy">The most resilient hour window will appear here.</p>
+        </article>
+        <article class="nbu-story-card">
+          <p class="nbu-section-label">Teaching angle</p>
+          <h3 id="hero-angle-title">Load data</h3>
+          <p id="hero-angle-copy">The core lesson for students will appear here.</p>
+        </article>
+      </section>
+
+      <section class="nbu-chart-grid">
+        <article class="nbu-panel">
+          <div class="nbu-panel-heading">
+            <p class="nbu-section-label">Sales flow</p>
+            <h2>Hourly sales by month</h2>
+          </div>
+          <canvas id="sales-trend-chart" aria-label="Hourly sales by month" role="img"></canvas>
+        </article>
+
+        <article class="nbu-panel">
+          <div class="nbu-panel-heading">
+            <p class="nbu-section-label">Month view</p>
+            <h2>Total sales by month</h2>
+          </div>
+          <canvas id="monthly-totals-chart" aria-label="Monthly sales totals" role="img"></canvas>
+        </article>
+      </section>
+    </section>
+
+    <section
+      id="insights-tab-panel"
+      class="nbu-tab-panel"
+      role="tabpanel"
+      aria-labelledby="insights-tab"
+      data-tab-panel
+      hidden
+    >
+      <div class="nbu-tab-intro">
+        <p class="nbu-section-label">Insights tab</p>
+        <h2>Why is performance slipping?</h2>
+        <p id="insights-tab-summary">
+          This tab connects waiting-time feedback with staffing pressure so students can diagnose the operational bottleneck behind the numbers.
+        </p>
+      </div>
+
+      <section class="nbu-chart-grid">
+        <article class="nbu-panel">
+          <div class="nbu-panel-heading">
+            <p class="nbu-section-label">Customer wait time</p>
+            <h2>Waiting-related reviews and average rating</h2>
+          </div>
+          <canvas id="reviews-chart" aria-label="Review category counts with emphasis on waiting-related feedback" role="img"></canvas>
+        </article>
+
+        <article class="nbu-panel">
+          <div class="nbu-panel-heading">
+            <p class="nbu-section-label">Operational load</p>
+            <h2>Sales pressure per staff window</h2>
+          </div>
+          <canvas id="staffing-chart" aria-label="Sales pressure relative to staffing" role="img"></canvas>
+        </article>
+      </section>
+
+      <section class="nbu-story-grid">
+        <article class="nbu-story-card">
+          <p class="nbu-section-label">What is working</p>
+          <h2>Strengths</h2>
+          <div id="strengths-list" class="nbu-story-list">
+            <p>Load data to reveal the strongest patterns in the workbook.</p>
+          </div>
+        </article>
+
+        <article class="nbu-story-card">
+          <p class="nbu-section-label">Where to look deeper</p>
+          <h2>Weak points</h2>
+          <div id="weaknesses-list" class="nbu-story-list">
+            <p>Weak spots and operational bottlenecks will show up here.</p>
+          </div>
+        </article>
+
+        <article class="nbu-story-card nbu-story-card--wide">
+          <p class="nbu-section-label">Business narrative</p>
+          <h2>What story does the data tell?</h2>
+          <p id="story-summary" class="nbu-story-summary">
+            The dashboard combines sales, customer feedback, and staffing to help students connect metrics with a concrete management decision.
+          </p>
+          <div class="nbu-insight-columns">
+            <div>
+              <h3>Suggested actions</h3>
+              <div id="actions-list" class="nbu-story-list">
+                <p>Action ideas appear here after the workbook is parsed.</p>
+              </div>
+            </div>
+            <div id="dashboard-guide">
+              <h3>Questions for class discussion</h3>
+              <div id="questions-list" class="nbu-story-list">
+                <p>The dashboard will generate prompts that help students interpret, challenge, and discuss the charts.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </section>
+
+    <section
+      id="prediction-tab-panel"
+      class="nbu-tab-panel"
+      role="tabpanel"
+      aria-labelledby="prediction-tab"
+      data-tab-panel
+      hidden
+    >
+      <div class="nbu-tab-intro">
+        <p class="nbu-section-label">Prediction tab</p>
+        <h2>What could happen next?</h2>
+        <p id="prediction-summary">
+          This tab turns the workbook into a teaching forecast: baseline continuation, service-recovery upside, and the assumptions behind both.
+        </p>
+      </div>
+
+      <section class="nbu-quick-grid nbu-quick-grid--prediction">
+        <article class="nbu-story-card">
+          <p class="nbu-section-label">Baseline projection</p>
+          <h3 id="prediction-baseline-title">Load data</h3>
+          <p id="prediction-baseline-copy">The no-change projection appears here.</p>
+        </article>
+        <article class="nbu-story-card">
+          <p class="nbu-section-label">Recovery scenario</p>
+          <h3 id="prediction-recovery-title">Load data</h3>
+          <p id="prediction-recovery-copy">A service-improvement scenario appears here.</p>
+        </article>
+        <article class="nbu-story-card">
+          <p class="nbu-section-label">What to watch</p>
+          <h3 id="prediction-watch-title">Load data</h3>
+          <p id="prediction-watch-copy">The key risk signal for next month appears here.</p>
+        </article>
+      </section>
+
+      <section class="nbu-prediction-grid">
+        <article class="nbu-panel nbu-panel--wide">
+          <div class="nbu-panel-heading">
+            <p class="nbu-section-label">Scenario view</p>
+            <h2>Next-month projection</h2>
+          </div>
+          <canvas id="forecast-chart" aria-label="Projected next month sales scenarios" role="img"></canvas>
+        </article>
+
+        <article class="nbu-story-card">
+          <p class="nbu-section-label">Assumptions</p>
+          <h2>How the projection is built</h2>
+          <div id="prediction-list" class="nbu-story-list">
+            <p>Prediction logic appears here after the workbook is parsed.</p>
+          </div>
+        </article>
+
+        <article class="nbu-story-card">
+          <p class="nbu-section-label">Class questions</p>
+          <h2>How should students challenge it?</h2>
+          <div id="prediction-questions" class="nbu-story-list">
+            <p>Prediction-focused discussion prompts appear here after the workbook is parsed.</p>
+          </div>
+        </article>
+      </section>
+    </section>
+
+    <section
+      id="raw-data-tab-panel"
+      class="nbu-tab-panel"
+      role="tabpanel"
+      aria-labelledby="raw-data-tab"
+      data-tab-panel
+      hidden
+    >
+      <div class="nbu-tab-intro">
+        <p class="nbu-section-label">Raw data tab</p>
+        <h2>The workbook behind the dashboard</h2>
+        <p id="raw-data-summary">
+          This tab shows the spreadsheet rows that feed the dashboard so students can compare raw input with interpreted output.
+        </p>
+      </div>
+
+      <section class="nbu-raw-grid">
+        <article class="nbu-panel nbu-panel--wide">
+          <div class="nbu-panel-heading">
+            <p class="nbu-section-label">Sales sheet</p>
+            <h2>Продажби по часове</h2>
+          </div>
+          <div id="raw-sales-table" class="nbu-table-wrap">
+            <p class="nbu-table-placeholder">Load data to inspect the sales sheet.</p>
+          </div>
+        </article>
+
+        <article class="nbu-panel">
+          <div class="nbu-panel-heading">
+            <p class="nbu-section-label">Reviews sheet</p>
+            <h2>Отзиви на клиенти</h2>
+          </div>
+          <div id="raw-reviews-table" class="nbu-table-wrap">
+            <p class="nbu-table-placeholder">Load data to inspect customer reviews.</p>
+          </div>
+        </article>
+
+        <article class="nbu-panel">
+          <div class="nbu-panel-heading">
+            <p class="nbu-section-label">Staffing sheet</p>
+            <h2>График на персонала</h2>
+          </div>
+          <div id="raw-staff-table" class="nbu-table-wrap">
+            <p class="nbu-table-placeholder">Load data to inspect the staffing plan.</p>
+          </div>
+        </article>
+      </section>
+    </section>
+  </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="{{ '/assets/js/nbu-dashboard.js' | relative_url }}"></script>

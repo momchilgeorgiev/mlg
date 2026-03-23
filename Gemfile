@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+ruby ">= 3.1", "< 4.0"
+
 # Use GitHub Pages gem for compatibility
 gem "github-pages", group: :jekyll_plugins
 
