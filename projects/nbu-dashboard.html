@@ -84,13 +84,25 @@ permalink: /projects/nbu-dashboard/
   <section class="nbu-tabs-shell">
     <div class="nbu-tab-list" role="tablist" aria-label="NBU dashboard stories">
       <button
-        id="hero-tab"
+        id="builder-tab"
         class="nbu-tab-button is-active"
         type="button"
         role="tab"
         aria-selected="true"
+        aria-controls="builder-tab-panel"
+        data-tab-target="builder-tab-panel"
+      >
+        Builder tab
+      </button>
+      <button
+        id="hero-tab"
+        class="nbu-tab-button"
+        type="button"
+        role="tab"
+        aria-selected="false"
         aria-controls="hero-tab-panel"
         data-tab-target="hero-tab-panel"
+        tabindex="-1"
       >
         Hero tab
       </button>
@@ -133,11 +145,202 @@ permalink: /projects/nbu-dashboard/
     </div>
 
     <section
-      id="hero-tab-panel"
+      id="builder-tab-panel"
       class="nbu-tab-panel is-active"
+      role="tabpanel"
+      aria-labelledby="builder-tab"
+      data-tab-panel
+    >
+      <div class="nbu-tab-intro">
+        <p class="nbu-section-label">Builder tab</p>
+        <h2>Let students build their own dashboard</h2>
+        <p id="builder-summary">
+          Use the controls below to add your own widgets, charts, tables, and notes. Chart widgets are built from the sheet columns students choose, including multiple series columns such as month fields, so they can design views from scratch instead of relying on pre-made chart setups.
+        </p>
+      </div>
+
+      <section class="nbu-builder-layout">
+        <article class="nbu-panel nbu-builder-controls">
+          <div class="nbu-panel-heading">
+            <p class="nbu-section-label">Widget builder</p>
+            <h2>Create a dashboard element</h2>
+          </div>
+
+          <div class="nbu-builder-form">
+            <div class="field">
+              <label for="widget-title-input">Widget title</label>
+              <input id="widget-title-input" type="text" placeholder="Example: Morning sales trend" />
+            </div>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="widget-type-select">Element type</label>
+                <select id="widget-type-select">
+                  <option value="big-number">Big number</option>
+                  <option value="chart">Chart</option>
+                  <option value="table">Table</option>
+                  <option value="note">Note</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="widget-sheet-select">Sheet source</label>
+                <select id="widget-sheet-select">
+                  <option value="sales">Продажби по часове</option>
+                  <option value="reviews">Отзиви на клиенти</option>
+                  <option value="staff">График на персонала</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="widget-size-select">Card size</label>
+                <select id="widget-size-select">
+                  <option value="small">Small</option>
+                  <option value="medium" selected>Medium</option>
+                  <option value="wide">Wide</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-grid" id="widget-metric-fields" hidden>
+              <div class="field">
+                <label for="widget-source-select">Metric</label>
+                <select id="widget-source-select"></select>
+              </div>
+            </div>
+
+            <div class="field-grid" id="widget-chart-fields" hidden>
+              <div class="field">
+                <label for="widget-chart-type-select">Chart type</label>
+                <select id="widget-chart-type-select">
+                  <option value="bar">Bar chart</option>
+                  <option value="line">Line chart</option>
+                  <option value="area">Area chart</option>
+                  <option value="horizontal-bar">Horizontal bar</option>
+                  <option value="doughnut">Doughnut chart</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="widget-x-select">X-axis column</label>
+                <select id="widget-x-select"></select>
+              </div>
+            </div>
+
+            <div class="field" id="widget-series-field" hidden>
+              <label>Series columns</label>
+              <div id="widget-series-options" class="nbu-series-picker"></div>
+            </div>
+
+            <div class="field-grid" id="widget-chart-options" hidden>
+              <div class="field">
+                <label for="widget-chart-aggregate-select">Aggregation</label>
+                <select id="widget-chart-aggregate-select">
+                  <option value="none">Raw rows</option>
+                  <option value="sum">Sum by X</option>
+                  <option value="average">Average by X</option>
+                  <option value="count">Count by X</option>
+                  <option value="min">Minimum by X</option>
+                  <option value="max">Maximum by X</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="widget-chart-sort-select">Sort order</label>
+                <select id="widget-chart-sort-select">
+                  <option value="sheet">Sheet order</option>
+                  <option value="x-asc">X: A to Z</option>
+                  <option value="x-desc">X: Z to A</option>
+                  <option value="y-desc">Y: High to low</option>
+                  <option value="y-asc">Y: Low to high</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="widget-chart-limit-select">Data limit</label>
+                <select id="widget-chart-limit-select">
+                  <option value="all">All rows</option>
+                  <option value="5">Top 5</option>
+                  <option value="8">Top 8</option>
+                  <option value="10">Top 10</option>
+                  <option value="12">Top 12</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="widget-chart-palette-select">Color palette</label>
+                <select id="widget-chart-palette-select">
+                  <option value="ocean">Ocean</option>
+                  <option value="contrast">Contrast</option>
+                  <option value="warm">Warm</option>
+                </select>
+              </div>
+            </div>
+
+            <p class="helper-text" id="widget-chart-helper" hidden>
+              Choose any filled column for X and one or more numeric series columns.
+            </p>
+
+            <div class="field-grid" id="widget-table-fields" hidden>
+              <div class="field">
+                <label for="widget-table-limit-select">Rows to show</label>
+                <select id="widget-table-limit-select">
+                  <option value="all">All rows</option>
+                  <option value="5">First 5</option>
+                  <option value="10">First 10</option>
+                  <option value="15">First 15</option>
+                  <option value="20">First 20</option>
+                </select>
+              </div>
+            </div>
+
+            <p class="helper-text" id="widget-table-helper" hidden>
+              Show the full sheet or only the first rows when the table is used as a supporting widget.
+            </p>
+
+            <div class="field" id="widget-note-field" hidden>
+              <label for="widget-note-input">Note text</label>
+              <textarea id="widget-note-input" rows="4" placeholder="Write a conclusion, recommendation, or question for the class."></textarea>
+            </div>
+
+            <div class="nbu-builder-actions">
+              <button class="btn btn-primary" id="add-widget-button" type="button">Add widget</button>
+              <button class="btn nbu-btn-secondary" id="reset-widgets-button" type="button">Clear dashboard</button>
+            </div>
+          </div>
+
+          <div class="nbu-builder-presets-block">
+            <h3>Starter widgets</h3>
+            <div id="builder-presets" class="nbu-builder-presets">
+              <p class="nbu-builder-placeholder">Load data to unlock starter metric and table widgets.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="nbu-panel nbu-builder-canvas-panel">
+          <div class="nbu-panel-heading">
+            <p class="nbu-section-label">Student canvas</p>
+            <h2>Your dashboard</h2>
+            <p class="nbu-helper-copy">Add widgets, reorder them, and discuss why this layout tells a stronger or weaker business story.</p>
+          </div>
+
+          <div id="builder-canvas" class="nbu-builder-canvas">
+            <div class="nbu-builder-empty">
+              <h3>Start building</h3>
+              <p>Add a big number, chart, table, or note. This canvas is meant to feel like a simple classroom version of Grafana or BI dashboard building.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+    </section>
+
+    <section
+      id="hero-tab-panel"
+      class="nbu-tab-panel"
       role="tabpanel"
       aria-labelledby="hero-tab"
       data-tab-panel
+      hidden
     >
       <div class="nbu-tab-intro">
         <p class="nbu-section-label">Hero tab</p>
