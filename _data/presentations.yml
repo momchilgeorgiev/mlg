@@ -5,9 +5,15 @@
 #   - title: The presentation name
 #   - url: The presentation link (Canva, Google Slides, etc.)
 #   - date: Date in YYYY-MM-DD format
-#   - description: (optional) Short description
+#   - description: (optional) Short description 
 
 presentations:
+
+
+  - title: "Freemium Business Model, NBU"
+    url: https://canva.link/ztx7h6ieksxqb6n
+    date: 2026-04-06
+    description:
 
   - title: "Leadership types presentation, NBU"
     url: https://www.canva.com/design/DAHDxuxVUb8/TJalTXXCJLuXDHpVMEKdnQ/edit?utm_content=DAHDxuxVUb8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
